@@ -1,293 +1,36 @@
 <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#102b46">
-  <meta name="description" content="Request trusted local home services with Quick Lead Service. Tell us what you need and we'll help connect you with a local service provider.">
-  <title>Quick Lead Service | Local Services Made Simple</title>
-  <style>
-    :root{--navy:#102b46;--navy2:#173d60;--teal:#13866f;--mint:#e7f7f1;--ink:#172334;--muted:#667386;--line:#e4eaf0;--bg:#f6f8fb;--white:#fff;--gold:#ffcf70}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--ink);background:var(--bg);line-height:1.55}
-    a{color:inherit}
-    .wrap{width:min(1120px,92%);margin:auto}
-    header{background:var(--navy);color:#fff;position:sticky;top:0;z-index:10;box-shadow:0 5px 25px #071b2b22}
-    .nav{display:flex;align-items:center;justify-content:space-between;gap:16px;min-height:76px}
-    .brand{display:flex;align-items:center;gap:11px;text-decoration:none;font-weight:850;letter-spacing:-.3px}
-    .brand-mark{width:42px;height:42px;display:grid;place-items:center;border-radius:13px;background:#fff;color:var(--navy);font-size:24px}
-    .brand small{display:block;color:#c4d7e8;font-weight:500;font-size:11px;letter-spacing:.4px}
-    .nav-links{display:flex;align-items:center;gap:24px}
-    .nav-links a{text-decoration:none;font-size:14px;color:#e2edf6}
-    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:12px;padding:13px 18px;font-weight:750;text-decoration:none;cursor:pointer;transition:transform .15s,filter .15s;font-size:14px}
-    .btn:hover{transform:translateY(-1px);filter:brightness(1.03)}
-    .btn-primary{background:var(--teal);color:white}
-    .btn-light{background:white;color:var(--navy)}
-    .btn-outline{border:1px solid #cad8e4;background:transparent;color:var(--navy)}
-    .hero{background:radial-gradient(circle at 85% 15%,#2b5d7b 0,transparent 30%),linear-gradient(125deg,var(--navy),#17456a);color:#fff;padding:68px 0 74px;overflow:hidden}
-    .hero-grid{display:grid;grid-template-columns:1.12fr .88fr;align-items:center;gap:42px}
-    .eyebrow{display:inline-flex;align-items:center;gap:8px;background:#ffffff16;border:1px solid #ffffff2c;border-radius:999px;padding:7px 12px;font-size:12px;color:#e1f5f0;font-weight:700}
-    h1{font-size:clamp(36px,5.5vw,61px);line-height:1.06;letter-spacing:-2px;margin:19px 0}
-    h1 span{color:var(--gold)}
-    .hero p{color:#d9e6f1;font-size:17px;max-width:560px;margin:0 0 25px}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:12px}
-    .trust-row{display:flex;gap:18px;flex-wrap:wrap;margin-top:27px;color:#d5e3ef;font-size:12px}
-    .trust-row span:before{content:"✓";color:#8be0c7;font-weight:900;margin-right:7px}
-    .hero-card{background:white;color:var(--ink);padding:24px;border-radius:24px;box-shadow:0 24px 70px #06182755;transform:rotate(1deg)}
-    .hero-card h2{margin:0 0 5px;font-size:22px;letter-spacing:-.5px}
-    .sub{margin:0;color:var(--muted);font-size:13px}
-    .mini-services{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:19px}
-    .mini-service{display:flex;align-items:center;gap:10px;padding:12px;border:1px solid var(--line);border-radius:13px;font-size:13px;font-weight:700}
-    .mini-service .emoji{font-size:22px}
-    .hero-note{font-size:11px;color:var(--muted);margin-top:15px}
-    section{padding:68px 0}
-    .section-head{text-align:center;max-width:680px;margin:0 auto 32px}
-    .kicker{text-transform:uppercase;color:var(--teal);font-size:11px;font-weight:850;letter-spacing:1.7px}
-    h2{font-size:clamp(27px,3vw,38px);letter-spacing:-1px;line-height:1.15;margin:10px 0}
-    .section-head p{color:var(--muted);margin:0}
-    .service-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .service-card{background:white;border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 7px 22px #17314a08}
-    .service-icon{height:48px;width:48px;border-radius:15px;background:var(--mint);display:grid;place-items:center;font-size:25px}
-    .service-card h3{font-size:17px;margin:14px 0 5px}
-    .service-card p{font-size:13px;color:var(--muted);margin:0}
-    .service-card button{margin-top:15px;background:none;border:0;color:var(--teal);font-weight:800;padding:0;cursor:pointer}
-    .how{background:#fff}
-    .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
-    .step{padding:25px;border:1px solid var(--line);border-radius:18px;background:#fff}
-    .step-no{width:37px;height:37px;display:grid;place-items:center;border-radius:12px;background:var(--navy);color:white;font-weight:850}
-    .step h3{margin:15px 0 7px;font-size:18px}
-    .step p{margin:0;color:var(--muted);font-size:14px}
-    .request-section{background:linear-gradient(180deg,#f6f8fb,#edf4f7)}
-    .request-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:34px;align-items:start}
-    .request-copy{padding-top:14px}
-    .request-copy p{color:var(--muted)}
-    .benefit{display:flex;gap:11px;margin:20px 0;font-size:14px}
-    .benefit b{display:block}
-    .benefit small{color:var(--muted)}
-    .form-card{background:#fff;padding:28px;border-radius:22px;border:1px solid var(--line);box-shadow:0 15px 45px #1c33490c}
-    .form-card h3{margin:0 0 5px;font-size:23px}
-    .form-card>p{color:var(--muted);font-size:13px;margin:0 0 23px}
-    form{display:grid;grid-template-columns:1fr 1fr;gap:15px}
-    .field{display:flex;flex-direction:column;gap:7px}
-    .field.full{grid-column:1/-1}
-    label{font-size:12px;font-weight:800;color:#334256}
-    input,select,textarea{width:100%;padding:13px 12px;border:1px solid #d8e0e8;border-radius:10px;font:inherit;font-size:14px;background:#fff;color:var(--ink);outline:none}
-    input:focus,select:focus,textarea:focus{border-color:var(--teal);box-shadow:0 0 0 3px #13866f18}
-    textarea{min-height:90px;resize:vertical}
-    .consent{display:flex;align-items:flex-start;gap:9px;font-size:12px;color:var(--muted);grid-column:1/-1}
-    .consent input{width:16px;height:16px;margin-top:2px;flex:0 0 auto}
-    .form-submit{grid-column:1/-1;width:100%;font-size:15px}
-    .form-hint{grid-column:1/-1;font-size:11px;color:var(--muted);margin-top:-7px}
-    .notice{display:none;background:#e8f8f1;border:1px solid #b8e7d5;color:#135c49;padding:12px;border-radius:10px;font-size:13px;grid-column:1/-1}
-    .faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    details{background:white;border:1px solid var(--line);border-radius:14px;padding:17px}
-    summary{font-weight:800;cursor:pointer}
-    details p{color:var(--muted);font-size:14px;margin-bottom:0}
-    .cta{background:var(--navy);color:white;border-radius:22px;padding:32px;display:flex;align-items:center;justify-content:space-between;gap:20px}
-    .cta h2{margin:0 0 8px}
-    .cta p{color:#cbdce9;margin:0}
-    footer{background:#0b2034;color:#d7e2eb;padding:30px 0}
-    .footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
-    footer p{margin:5px 0;font-size:12px;color:#b8c8d6}
-    .footer-links{display:flex;gap:16px;font-size:12px}
-    .footer-links a{color:#d7e2eb}
-    .fine{font-size:11px;color:#aebfce;max-width:750px;margin-top:18px}
-    @media(max-width:800px){.nav-links a:not(.btn){display:none}.hero{padding:48px 0 55px}.hero-grid,.request-layout{grid-template-columns:1fr}.hero-card{transform:none;max-width:520px}.service-grid{grid-template-columns:repeat(2,1fr)}.steps{grid-template-columns:1fr}.request-copy{padding-top:0}.cta{align-items:flex-start;flex-direction:column}}
-    @media(max-width:520px){.wrap{width:min(100% - 28px,1120px)}.nav{min-height:67px}.brand{font-size:14px}.brand-mark{width:37px;height:37px}.nav-links .btn{padding:10px 12px;font-size:12px}.hero-grid{gap:28px}h1{letter-spacing:-1.2px}.hero p{font-size:15px}.hero-card{padding:18px}.mini-service{padding:10px;font-size:12px}.service-grid{grid-template-columns:1fr 1fr;gap:10px}.service-card{padding:15px}.service-card h3{font-size:15px}.service-card p{font-size:12px}.service-card button{font-size:12px}section{padding:50px 0}.form-card{padding:20px}form{grid-template-columns:1fr}.field.full,.consent,.form-submit,.form-hint,.notice{grid-column:1}.faq-grid{grid-template-columns:1fr}.trust-row{gap:10px}.cta{padding:24px}}
-  </style>
-</head>
-<body>
-<header>
-  <div class="wrap nav">
-    <a class="brand" href="#home" aria-label="Quick Lead Service home">
-      <span class="brand-mark">⚡</span>
-      <span>Quick Lead Service<small>LOCAL SERVICES, MADE SIMPLE</small></span>
-    </a>
-    <nav class="nav-links" aria-label="Main navigation">
-      <a href="#services">Services</a><a href="#how">How it works</a><a href="#request">Request service</a>
-      <a class="btn btn-light" href="#request">Get help <span aria-hidden="true">↗</span></a>
-    </nav>
-  </div>
-</header>
-
-<main>
-  <section class="hero" id="home">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow">✦ Your local service connection</div>
-        <h1>Need a service?<br><span>Let's make it simple.</span></h1>
-        <p>Tell us what you need at home or work. Quick Lead Service helps connect your request with a local service provider in your area.</p>
-        <div class="hero-actions">
-          <a class="btn btn-primary" href="#request">Request a service <span aria-hidden="true">→</span></a>
-          <a class="btn btn-light" href="#services">Explore services</a>
-        </div>
-        <div class="trust-row"><span>Simple request form</span><span>Local providers</span><span>No online payment needed</span></div>
-      </div>
-      <div class="hero-card">
-        <h2>What do you need help with?</h2>
-        <p class="sub">Choose a service to get started.</p>
-        <div class="mini-services">
-          <div class="mini-service"><span class="emoji">⚡</span> Electrician</div>
-          <div class="mini-service"><span class="emoji">🚰</span> Plumber</div>
-          <div class="mini-service"><span class="emoji">❄️</span> AC repair</div>
-          <div class="mini-service"><span class="emoji">🧹</span> Cleaning</div>
-          <div class="mini-service"><span class="emoji">🪚</span> Carpenter</div>
-          <div class="mini-service"><span class="emoji">🛠️</span> Other repair</div>
-        </div>
-        <p class="hero-note">Provider availability, service charges and timing must be confirmed before booking.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="services">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="kicker">Our services</div>
-        <h2>Help for everyday needs</h2>
-        <p>Choose a service and tell us a little about the work. We’ll try to connect you with a suitable local provider.</p>
-      </div>
-      <div class="service-grid">
-        <article class="service-card"><div class="service-icon">⚡</div><h3>Electrician</h3><p>Electrical repairs and installation requests.</p><button type="button" data-service="Electrician">Request this service →</button></article>
-        <article class="service-card"><div class="service-icon">🚰</div><h3>Plumber</h3><p>Tap, pipe, leakage and plumbing requests.</p><button type="button" data-service="Plumber">Request this service →</button></article>
-        <article class="service-card"><div class="service-icon">❄️</div><h3>AC repair</h3><p>AC servicing, inspection and repair requests.</p><button type="button" data-service="AC repair">Request this service →</button></article>
-        <article class="service-card"><div class="service-icon">🧹</div><h3>Home cleaning</h3><p>Basic home and workplace cleaning requests.</p><button type="button" data-service="Home cleaning">Request this service →</button></article>
-        <article class="service-card"><div class="service-icon">🪚</div><h3>Carpenter</h3><p>Furniture fixes, fittings and woodwork requests.</p><button type="button" data-service="Carpenter">Request this service →</button></article>
-        <article class="service-card"><div class="service-icon">🛠️</div><h3>Other repair</h3><p>Tell us about another local service you need.</p><button type="button" data-service="Other repair">Request this service →</button></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="how" id="how">
-    <div class="wrap">
-      <div class="section-head">
-        <div class="kicker">How it works</div>
-        <h2>Three simple steps</h2>
-        <p>We help pass your request to a local provider. Confirm all details directly before work begins.</p>
-      </div>
-      <div class="steps">
-        <article class="step"><div class="step-no">01</div><h3>Share your request</h3><p>Choose a service, add your area and explain what help you need.</p></article>
-        <article class="step"><div class="step-no">02</div><h3>Get connected</h3><p>With your permission, your request can be shared with a relevant service provider.</p></article>
-        <article class="step"><div class="step-no">03</div><h3>Confirm directly</h3><p>Confirm availability, price, timing and service terms with the provider before agreeing.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="request-section" id="request">
-    <div class="wrap request-layout">
-      <div class="request-copy">
-        <div class="kicker">Service request</div>
-        <h2>Tell us what you need.</h2>
-        <p>Fill in the form below. It will open WhatsApp with your request ready to send to Quick Lead Service.</p>
-        <div class="benefit"><span>✓</span><div><b>Easy on your phone</b><small>A short form with only the important details.</small></div></div>
-        <div class="benefit"><span>✓</span><div><b>Local service request</b><small>Share the area where service is needed.</small></div></div>
-        <div class="benefit"><span>✓</span><div><b>No online payment</b><small>Discuss service charges directly with the provider.</small></div></div>
-      </div>
-      <div class="form-card">
-        <h3>Request a service</h3>
-        <p>Fields marked * are required.</p>
-        <form id="serviceForm">
-          <div class="field"><label for="name">Your name *</label><input id="name" name="name" autocomplete="name" required maxlength="70" placeholder="Enter your name"></div>
-          <div class="field"><label for="phone">Mobile number *</label><input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" required pattern="[0-9+\s()-]{10,18}" maxlength="18" placeholder="Your contact number"></div>
-          <div class="field"><label for="service">Service needed *</label><select id="service" name="service" required><option value="">Choose a service</option><option>Electrician</option><option>Plumber</option><option>AC repair</option><option>Home cleaning</option><option>Carpenter</option><option>Appliance repair</option><option>Pest control</option><option>Other repair</option></select></div>
-          <div class="field"><label for="area">Your area / locality *</label><input id="area" name="area" required maxlength="100" placeholder="e.g. Nalasopara West"></div>
-          <div class="field full"><label for="details">Describe the work (optional)</label><textarea id="details" name="details" maxlength="500" placeholder="Briefly tell us what help you need"></textarea></div>
-          <label class="consent"><input id="consent" type="checkbox" required><span>I agree that Quick Lead Service may use these details to respond to my request and, with my permission, share relevant details with a service provider.</span></label>
-          <div class="notice" id="notice" role="status"></div>
-          <button class="btn btn-primary form-submit" type="submit">Continue to WhatsApp <span aria-hidden="true">↗</span></button>
-          <div class="form-hint">Your WhatsApp app will open. Review the message and tap Send. This website does not store your form data.</div>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <section id="faq">
-    <div class="wrap">
-      <div class="section-head"><div class="kicker">Good to know</div><h2>Frequently asked questions</h2></div>
-      <div class="faq-grid">
-        <details><summary>Is Quick Lead Service the service provider?</summary><p>Quick Lead Service helps connect customer requests with independent local providers. The provider performs the work and confirms the price and timing directly.</p></details>
-        <details><summary>How much will the service cost?</summary><p>Costs depend on the provider and the work needed. Confirm the price, any inspection fee and payment terms with the provider before work starts.</p></details>
-        <details><summary>Is a service guaranteed?</summary><p>No. A request does not guarantee provider availability or a booking. We will only confirm a booking if the provider has agreed.</p></details>
-        <details><summary>How is my request sent?</summary><p>After you submit the form, WhatsApp opens with a prepared message. You choose whether to send it. The form is not stored on this website.</p></details>
-      </div>
-    </div>
-  </section>
-
-  <section style="padding-top:0">
-    <div class="wrap">
-      <div class="cta">
-        <div><h2>Need local service help?</h2><p>Send a request and tell us what you need.</p></div>
-        <a class="btn btn-light" href="#request">Start a request →</a>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <div class="footer-row">
-      <div><strong>⚡ Quick Lead Service</strong><p>Local services, made simple.</p></div>
-      <div class="footer-links"><a href="#services">Services</a><a href="#request">Request service</a><a href="#faq">FAQs</a></div>
-    </div>
-    <p class="fine">Quick Lead Service is a request and connection service, not an emergency response provider. Provider availability, qualifications, prices and work are to be confirmed directly. For emergencies, contact the appropriate local emergency service. Do not submit passwords, payment details or sensitive personal information through this form.</p>
-    <p>© <span id="year"></span> Quick Lead Service. Please update this page with your actual service area and contact details before publishing.</p>
-  </div>
-</footer>
-
-<script>
-  // IMPORTANT: Replace this with your WhatsApp number including country code,
-  // digits only. Example format for India: 918928578876. Do not include + or spaces.
-  const WHATSAPP_NUMBER = "918928578876";
-
-  document.getElementById("year").textContent = new Date().getFullYear();
-
-  document.querySelectorAll("[data-service]").forEach(button => {
-    button.addEventListener("click", () => {
-      document.getElementById("service").value = button.dataset.service;
-      document.getElementById("request").scrollIntoView({behavior:"smooth"});
-      setTimeout(() => document.getElementById("name").focus({preventScroll:true}), 450);
-    });
-  });
-
-  document.getElementById("serviceForm").addEventListener("submit", function(event) {
-    event.preventDefault();
-    const notice = document.getElementById("notice");
-    const number = WHATSAPP_NUMBER.replace(/\D/g, "");
-
-    if (number.length < 11 || number.includes("XXXXXXXXXX")) {
-      notice.style.display = "block";
-      notice.textContent = "Website setup pending: the owner needs to add a valid WhatsApp number in the code before requests can be sent.";
-      return;
-    }
-
-    const name = document.getElementById("name").value.trim();
-    const phone = document.getElementById("phone").value.trim();
-    const service = document.getElementById("service").value;
-    const area = document.getElementById("area").value.trim();
-    const details = document.getElementById("details").value.trim();
-    const consent = document.getElementById("consent").checked;
-
-    if (!consent) {
-      notice.style.display = "block";
-      notice.textContent = "Please confirm consent before continuing.";
-      return;
-    }
-
-    const message = [
-      "Hello Quick Lead Service, I want to request a service.",
-      "",
-      "Name: " + name,
-      "Customer contact: " + phone,
-      "Service: " + service,
-      "Area: " + area,
-      "Work details: " + (details || "Not provided"),
-      "",
-      "I agree to be contacted about this request."
-    ].join("\n");
-
-    const url = "https://wa.me/" + number + "?text=" + encodeURIComponent(message);
-    window.location.href = url;
-  });
-</script>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Quick Lead Service | Find Local Help</title><meta name="description" content="Find local electricians, plumbers, AC repair and home services."><style>
+:root{--ink:#152238;--muted:#64748b;--brand:#0b6bcb;--bg:#f4f7fb;--line:#e2e8f0}*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:var(--bg);color:var(--ink)}header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:3}.wrap{max-width:1080px;margin:auto;padding:16px}.nav{display:flex;justify-content:space-between;align-items:center;gap:12px}.logo{font-size:20px;font-weight:850}.logo span{color:var(--brand)}.pill{border:0;background:var(--brand);color:white;padding:10px 15px;border-radius:10px;font-weight:700;text-decoration:none;cursor:pointer}.hero{padding:36px 0 20px}.hero h1{font-size:clamp(30px,6vw,48px);line-height:1.08;margin:8px 0 12px}.hero p,.muted{color:var(--muted)}.search{width:100%;padding:13px;border:1px solid var(--line);border-radius:12px;font:inherit;background:white}.section-title{display:flex;align-items:end;justify-content:space-between;gap:10px;margin:28px 0 14px}.categories,.providers{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px}.cat,.provider{background:#fff;border:1px solid var(--line);border-radius:15px;padding:16px}.cat{cursor:pointer;text-align:left;font:inherit;font-weight:750}.cat.active{border:2px solid var(--brand);background:#eef6ff}.emoji{font-size:27px;display:block;margin-bottom:8px}.provider h3{margin:0 0 5px}.provider p{margin:7px 0;color:var(--muted);font-size:14px}.tag{display:inline-block;background:#eff6ff;color:#155eaa;border-radius:20px;padding:4px 9px;font-size:12px;font-weight:700}.actions{display:flex;gap:8px;margin-top:14px}.actions a,.actions button{flex:1;text-align:center;text-decoration:none;border-radius:9px;padding:10px 8px;font:inherit;font-size:14px;font-weight:750;cursor:pointer}.call{background:#e8f8ee;color:#17663a;border:1px solid #bde8ca}.request{background:var(--brand);color:#fff;border:0}.panel{background:white;border:1px solid var(--line);border-radius:16px;padding:18px;margin:22px 0}.formgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}label{font-size:13px;font-weight:750;display:block;margin-bottom:5px}input,select,textarea{width:100%;padding:11px;border:1px solid #cbd5e1;border-radius:9px;font:inherit;background:white}textarea{min-height:85px;resize:vertical}.full{grid-column:1/-1}.status{margin-top:12px;font-size:14px}.hidden{display:none!important}footer{text-align:center;color:var(--muted);font-size:13px;padding:26px 12px}@media(max-width:480px){.wrap{padding:13px}.actions{flex-direction:column}}
+</style></head><body>
+<header><div class="wrap nav"><div class="logo">Quick <span>Lead</span> Service</div><a class="pill" href="#request">Request a Service</a></div></header>
+<main class="wrap"><section class="hero"><span class="tag">LOCAL SERVICE DIRECTORY</span><h1>Trusted local help,<br>made easier.</h1><p>Find a service provider, call directly, or send a request. Confirm availability and charges with the provider before work begins.</p><input id="search" class="search" placeholder="Search electrician, plumber, area…" aria-label="Search services and providers"></section>
+<section><div class="section-title"><div><h2 style="margin:0">Choose a service</h2><div class="muted">Tap a category to view providers</div></div></div><div class="categories" id="categories"></div></section>
+<section><div class="section-title"><div><h2 id="providerHeading" style="margin:0">Available providers</h2><div class="muted" id="providerSub">Demo profiles shown until real providers are added.</div></div></div><div id="providers" class="providers"></div><p id="providerEmpty" class="muted hidden">No providers found. Try another service or search.</p></section>
+<section class="panel" id="request"><h2 style="margin-top:0">Request a service</h2><p class="muted">Your request is sent to Quick Lead Service for tracking. A team member can contact you. Do not submit passwords or sensitive information.</p><form id="requestForm"><div class="formgrid"><div><label for="customer_name">Your name *</label><input id="customer_name" maxlength="100" required></div><div><label for="phone">Phone number *</label><input id="phone" inputmode="tel" maxlength="20" required></div><div><label for="service_type">Service needed *</label><select id="service_type" required></select></div><div><label for="area">Area / locality *</label><input id="area" maxlength="200" placeholder="e.g. Dombivli East" required></div><div class="full"><label for="description">Work details (optional)</label><textarea id="description" maxlength="500" placeholder="Briefly describe what you need"></textarea></div></div><button class="pill" style="margin-top:14px" type="submit">Submit Request</button><div id="formStatus" class="status" role="status"></div></form></section>
+</main><footer>Quick Lead Service · Independent local providers · Always confirm price and availability directly.</footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script>
+// Replace these two values with your Supabase Project URL and PUBLISHABLE key.
+const SUPABASE_URL = 'PASTE_YOUR_SUPABASE_PROJECT_URL_HERE';
+const SUPABASE_PUBLISHABLE_KEY = 'PASTE_YOUR_SUPABASE_PUBLISHABLE_KEY_HERE';
+const demoMode = SUPABASE_URL.includes('PASTE_') || SUPABASE_PUBLISHABLE_KEY.includes('PASTE_');
+const db = demoMode ? null : window.supabase.createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
+const categories = [
+ {name:'Electrician',icon:'⚡',desc:'Electrical repair'}, {name:'Plumber',icon:'🚰',desc:'Pipes and taps'}, {name:'AC Repair',icon:'❄️',desc:'AC service'}, {name:'Home Cleaning',icon:'🧹',desc:'Home cleaning'}, {name:'Carpenter',icon:'🪚',desc:'Furniture repair'}, {name:'Appliance Repair',icon:'🔧',desc:'Home appliances'}, {name:'Painter',icon:'🖌️',desc:'Painting work'}, {name:'Other Repair',icon:'🛠️',desc:'Other local jobs'}
+];
+// Demo profiles are fictional and their phone numbers are intentionally non-callable placeholders.
+const demoProviders = [
+ {id:'demo-e1',name:'Demo Electrician A',service_type:'Electrician',area:'Dombivli East',experience_years:3,description:'Sample profile only. Replace with a real provider.',phone:'',is_active:true,is_published:true,is_demo:true},
+ {id:'demo-p1',name:'Demo Plumber A',service_type:'Plumber',area:'Dombivli East',experience_years:4,description:'Sample profile only. Replace with a real provider.',phone:'',is_active:true,is_published:true,is_demo:true},
+ {id:'demo-a1',name:'Demo AC Technician A',service_type:'AC Repair',area:'Dombivli East',experience_years:2,description:'Sample profile only. Replace with a real provider.',phone:'',is_active:true,is_published:true,is_demo:true},
+ {id:'demo-c1',name:'Demo Home Service A',service_type:'Home Cleaning',area:'Nearby areas',experience_years:2,description:'Sample profile only. Replace with a real provider.',phone:'',is_active:true,is_published:true,is_demo:true},
+ {id:'demo-wood1',name:'Demo Carpenter A',service_type:'Carpenter',area:'Dombivli East',experience_years:5,description:'Sample profile only. Replace with a real provider.',phone:'',is_active:true,is_published:true,is_demo:true}
+];
+let allProviders = [...demoProviders], activeCategory = 'All';
+function esc(v=''){return String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
+function renderCategories(){const el=document.getElementById('categories');el.innerHTML=`<button class="cat ${activeCategory==='All'?'active':''}" data-cat="All"><span class="emoji">🔎</span>All services</button>`+categories.map(c=>`<button class="cat ${activeCategory===c.name?'active':''}" data-cat="${esc(c.name)}"><span class="emoji">${c.icon}</span>${esc(c.name)}<div class="muted" style="font-size:12px;font-weight:400">${esc(c.desc)}</div></button>`).join('');el.querySelectorAll('[data-cat]').forEach(b=>b.addEventListener('click',()=>{activeCategory=b.dataset.cat;renderCategories();renderProviders();document.getElementById('service_type').value=activeCategory==='All'?'':activeCategory;}));}
+function renderProviders(){const q=document.getElementById('search').value.toLowerCase().trim();const list=allProviders.filter(p=>(activeCategory==='All'||p.service_type===activeCategory)&&[p.name,p.service_type,p.area,p.description].join(' ').toLowerCase().includes(q));document.getElementById('providerHeading').textContent=activeCategory==='All'?'Available providers':activeCategory+' providers';document.getElementById('providers').innerHTML=list.map(p=>{const canCall=!p.is_demo&&p.phone;return `<article class="provider"><span class="tag">${esc(p.service_type)}</span><h3 style="margin-top:10px">${esc(p.name)}</h3><p>📍 ${esc(p.area||'Area not specified')}</p><p>Experience: ${Number(p.experience_years)||0} year(s)</p><p>${esc(p.description||'Local service provider')}</p>${p.is_demo?'<p><strong>Demo profile — not a real provider</strong></p>':''}<div class="actions">${canCall?`<a class="call" href="tel:${esc(p.phone)}">Call Now</a>`:`<button class="call" type="button" disabled style="opacity:.65">Call not available</button>`}<button class="request" type="button" data-request="${esc(p.service_type)}" data-provider="${esc(p.id)}">Request Service</button></div></article>`}).join('');document.getElementById('providerEmpty').classList.toggle('hidden',list.length!==0);document.querySelectorAll('[data-request]').forEach(b=>b.addEventListener('click',()=>{document.getElementById('service_type').value=b.dataset.request;document.getElementById('request').scrollIntoView({behavior:'smooth'});document.getElementById('formStatus').textContent='Selected service: '+b.dataset.request+'. Fill the form below.';}));}
+function renderServiceOptions(){document.getElementById('service_type').innerHTML='<option value="">Choose a service</option>'+categories.map(c=>`<option>${esc(c.name)}</option>`).join('');}
+async function loadProviders(){if(!db)return;try{const {data,error}=await db.from('providers').select('id,name,service_type,area,experience_years,description,phone,is_active,is_published').eq('is_active',true).eq('is_published',true).order('name');if(error)throw error;if(data&&data.length){allProviders=data.map(p=>({...p,is_demo:false}));document.getElementById('providerSub').textContent='Provider details are managed by Quick Lead Service.';renderProviders();}}catch(e){console.warn('Could not load provider list:',e.message);document.getElementById('providerSub').textContent='Showing demo profiles. Database provider list is not connected yet.';}}
+document.getElementById('search').addEventListener('input',renderProviders);renderCategories();renderServiceOptions();renderProviders();loadProviders();
+document.getElementById('requestForm').addEventListener('submit',async e=>{e.preventDefault();const status=document.getElementById('formStatus');const payload={customer_name:document.getElementById('customer_name').value.trim(),phone:document.getElementById('phone').value.trim(),service_type:document.getElementById('service_type').value,address:document.getElementById('area').value.trim(),description:document.getElementById('description').value.trim()||null};if(payload.customer_name.length<2||payload.phone.length<7||payload.address.length<3){status.textContent='Please check your name, phone number and area.';return;}if(demoMode){status.textContent='Demo mode: form is not saving yet. Add your Supabase URL and publishable key, then run setup.sql.';return;}status.textContent='Submitting…';const {error}=await db.from('service_requests').insert(payload);if(error){console.error(error);status.textContent='Request save nahi hui. Setup/RLS settings check karke dobara try karein.';return;}status.textContent='Request submitted successfully! Quick Lead Service can now see your request.';e.target.reset();});
+</script></body></html>
